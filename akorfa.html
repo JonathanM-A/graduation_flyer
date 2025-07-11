@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduation - Reception & Year 6</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            padding: 30px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .school-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .school-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-circle {
+            width: 60px;
+            height: 60px;
+            border: 3px solid #00ff88;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .school-name {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .accreditation {
+            color: #ff6b6b;
+            font-size: 12px;
+            font-weight: 500;
+            border: 2px solid #ff6b6b;
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .decorative-line {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #ffb347);
+            margin: 0 auto 30px;
+            border-radius: 2px;
+        }
+
+        .theme {
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 600;
+            margin: 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .event-details {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .event-details h3 {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .event-details p {
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .program {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .program h2 {
+            color: #ffd700;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .program-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .program-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+            transition: all 0.3s ease;
+        }
+
+        .program-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+
+        .program-number {
+            background: #ffd700;
+            color: #1e3c72;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 15px;
+        }
+
+        .program-text {
+            color: white;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .special-item {
+            font-weight: 500;
+            color: #00ff88;
+        }
+
+        .golden-ribbon {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #ffd700, #ffb347);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+            opacity: 0.3;
+        }
+
+        .golden-ribbon-left {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #ffd700, #ffb347);
+            border-radius: 50%;
+            bottom: -75px;
+            left: -75px;
+            opacity: 0.2;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 40px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .class-year {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+            }
+
+            .theme {
+                font-size: 1.4rem;
+                letter-spacing: 2px;
+            }
+
+            .container {
+                margin: 20px;
+            }
+
+            .school-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .program,
+            .header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-pattern"></div>
+
+    <div class="container">
+        <div class="golden-ribbon"></div>
+        <div class="golden-ribbon-left"></div>
+
+        <div class="header">
+            <div class="school-info">
+                <div class="school-logo">
+                    <div class="logo-circle">
+                        <span style="color: #00ff88; font-weight: bold;">DIS</span>
+                    </div>
+                    <div class="school-name">
+                        Daffodil<br>
+                        International<br>
+                        School
+                    </div>
+                </div>
+                <div class="accreditation">
+                    Pearson<br>
+                    Accredited<br>
+                    School
+                </div>
+            </div>
+
+            <h1 class="title">Graduation</h1>
+            <p class="subtitle">Reception & Year 6</p>
+
+            <div class="decorative-line"></div>
+
+            <h2 class="theme">Raising a 360 Child<br>in a Digital World</h2>
+
+            <div class="event-details">
+                <h3>Event Details</h3>
+                <p><strong>Date:</strong> 12th July, 2025 @ 4:00pm Sharp</p>
+                <p><strong>Venue:</strong> Royal Nick Hotel, Tema</p>
+            </div>
+        </div>
+
+        <div class="program">
+            <h2>Program of Events</h2>
+
+            <div class="program-list">
+                <div class="program-item">
+                    <div class="program-number">1</div>
+                    <div class="program-text">Opening Prayer</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">2</div>
+                    <div class="program-text special-item">Welcoming of Guests</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">3</div>
+                    <div class="program-text">Procession of Graduands (Hope and Glory-Pomp and Circumstance)</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">4</div>
+                    <div class="program-text">Purpose of Gathering (Mrs. Nyarko)</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">5</div>
+                    <div class="program-text special-item">Ballet/Cultural</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">6</div>
+                    <div class="program-text">Song Performance by Reception 2 Learners</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">7</div>
+                    <div class="program-text">Speech by Reception 2</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">8</div>
+                    <div class="program-text special-item">Video from Year 6</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">9</div>
+                    <div class="program-text">Speech by Year 6</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">10</div>
+                    <div class="program-text">Play</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">11</div>
+                    <div class="program-text special-item">Presentation by OT</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">12</div>
+                    <div class="program-text special-item">Cultural Dance/Ballet</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">13</div>
+                    <div class="program-text special-item">Address by Guest of Honour (Mr. Sowah/Ms. Evelyn)</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">14</div>
+                    <div class="program-text special-item">Message from Principal</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">15</div>
+                    <div class="program-text special-item">Presentation of Certificates and Awards</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">16</div>
+                    <div class="program-text">Closing Prayer</div>
+                </div>
+
+                <div class="program-item">
+                    <div class="program-number">17</div>
+                    <div class="program-text">Vote of Thanks</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="class-year">Class of 2025</p>
+        </div>
+    </div>
+</body>
+
+</html>
